@@ -1,5 +1,11 @@
+import { Button } from '@mantine/core';
 const NavBar = () => {
-    return <p className="text-yellow-400">Fest-Admin</p>;
+    return (
+        <>
+            <Button variant="gradient">Fest Admin</Button>
+            <p className="text-xl"></p>
+        </>
+    );
 };
 
 export default NavBar;
