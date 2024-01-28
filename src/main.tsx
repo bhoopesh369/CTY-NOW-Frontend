@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import './main.css';
 import { Home, Map ,Chat} from './pages';
+import Toaster from 'react-hot-toast';
 
 import '@mantine/core/styles.css';
 

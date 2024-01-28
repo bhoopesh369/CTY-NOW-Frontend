@@ -1,14 +1,50 @@
+import { useEffect } from "react";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+
 const Map = () => {
-    return (
-        <div className="w-full h-full">
-            {/* <iframe className="w-full h-full" src={`https://www.google.com/maps/embed?`} allowFullScreen={true} loading="lazy"></iframe> */}
-            <iframe
-                src="https://maps.openrouteservice.org/#/place/@82.26562500000001,17.84283252904803,6"
-                allowFullScreen={true}
-                className="w-full h-full"
-            ></iframe>
-        </div>
-    );
+
+  const updates = [
+    "பொது நிகழ்விற்காக வேலச்செரி மெயின் சாலையில் சாலை மூடப்படுகின்றது.",
+    "பழைய மகாபாலிபுரம் சாலையில் சாலை சுருக்கமாக நடக்கின்றது.",
+    "காதிபாரா பாரம்பரியத் தாக்குதல் விசாரணை. அதிகாரிகள் நிறுத்தலில் உள்ளனர்.",
+    "தொழில்நுட்ப உழைந்து உள்ள பணிகளால் ஆர்காட் சாலையில் தடைகள் உள்ளன.",
+    "டெய்நாம்பெட் சங்கம் சந்திப்புக் கூடாது. குறுகியல் பாதுகாக்கவும்.",
+    "கிண்டி அருகிலுள்ள ஒரு சிக்கலுக்குள்ளிருக்கும் பிரச்சாரம். பாதுகாப்பாக வாராதே.",
+    "பெரிய சொல்லுக்கு மேல் பூனமல்லி சாலையில் காரிகள் தெரியாமல் இருக்கின்றன.",
+    "தாம்பரம்-வேலச்செரி இணைப்பு சாலையில் விளக்குகள் உள்ளுக்குத்தல் காரணமாக தடைகள் உள்ளன.",
+    "திருவொற்றியூர் உச்சகட்டம் சாலையில் பராமரிப்பு காரணமாக தடைகள் உள்ளன.",
+    "சென்னை பைபாஸ் பாராமெடிக் விளக்குகள் உள்ளுக்குத்தல் காரணமாக வாகன எரிபு அறிக்கப்படுகிறது. அவசர சேவைகள் பராமரிக்கின்றன.",
+    "வடபழனி களப் பகுதியில் பொது கூட்டம் காரணமாக சுருக்கம் உள்ளது.",
+    "எக்காடுத்தங்கல் பிரிட்ஜில் பாதுகாக்கப்படுகின்ற பணியிடம். குழந்தைகளுடன் நேரம் எடுக்கவும்.",
+    "நுங்கம்பாகம் அருகிலுள்ள விளக்குகளுக்குக் கொஞ்சம் அந்தரங்கமாக சாலை உள்ளது. காதுகளைத் திறந்து இருங்கள்.",
+    "சென்னை கிரீன்ஸ் அமைந்த தமிழ்நாடு சபர்ப்யூர்பன் ரேல் லைனில் சாலை இருக்கின்றது.",
+    "வேலச்செரி மெயின் சாலையில் சாலை மூடப்படுகின்றது.",
+  ];
+
+
+  useEffect(() => {
+    const si = setInterval(() => {
+      const update = updates[Math.floor(Math.random() * updates.length)];
+      toast.success(update);
+    }, 7000);
+
+    return () => {
+      clearInterval(si);
+    }
+  }, []);
+
+  return (
+    <div className="w-full h-full">
+      {/* <iframe className="w-full h-full" src={`https://www.google.com/maps/embed?`} allowFullScreen={true} loading="lazy"></iframe> */}
+      <iframe
+        src="https://maps.openrouteservice.org/#/place/@82.26562500000001,17.84283252904803,6"
+        allowFullScreen={true}
+        className="w-full h-full"
+      ></iframe>
+      <Toaster />
+    </div>
+  );
 };
 
 export default Map;

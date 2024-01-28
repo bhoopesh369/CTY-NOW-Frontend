@@ -19,22 +19,50 @@ const Chat = () => {
     };
 
     return (
-        <div>
+        <div >
             <h1>CTY NOW</h1>
 
-            <div>
+            <div style={{
+                backgroundColor: 'grey',
+                padding: '20px',
+            }}>
+
                 {chats.map((chat) => (
-                    <div className="chat chat-start">
-                        <div className="chat-bubble">
-                            {chat.message}
-                        </div>
+                    <div className="chat chat-start relative w-full h-full">
+                        {chat.user == 1 &&
+                            <div className='relative left-[85vw]'>
+                                <div className="chat-bubble" style={{
+                                backgroundColor: 'darkblue',
+                                color: 'white',
+                                width: 'max-content',
+                                padding: '15px',
+                                borderRadius: '25px',
+                            }}>
+                                {chat.message}
+                            </div>
+                            </div>
+                        }
+                        {chat.user == 0  &&
+                            <div className='relative left-[0vw]'>
+                                <div className="chat-bubble" style={{
+                                backgroundColor: 'darkblue',
+                                color: 'white',
+                                width: 'max-content',
+                                padding: '15px',
+                                marginBottom: '10px',
+                                borderRadius: '25px',
+                            }}>
+                                {chat.message}
+                            </div>
+                            </div>
+                        }
                     </div>
                 ))}
             </div>
 
             {/* Example of adding a message */}
             <button onClick={() => addMessage('Hello Chat Bot!', 1)}>Send Message</button>
-        </div>
+        </div >
     );
 };
 
